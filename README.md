@@ -23,20 +23,10 @@ https://pnikitos327-sys.github.io/nordveil/
 - Адаптивный дизайн
 - Плавный скролл
 
-##  Структура проекта
-nordveil/
-├── index.html
-├── css/
-│ └── style.css
-├── js/
-│ └── script.js
-├── images/
-│ └── screenshot.jpg
-└── README.md
-
 ##  Запуск проекта
 1. Склонировать репозиторий
 2. Открыть `index.html` в браузере
 
 ##  Контакты
+
 - Email: owwwwkom@gmail.com
