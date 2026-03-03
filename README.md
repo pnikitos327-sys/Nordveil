@@ -4,9 +4,6 @@
 
 Современный лендинг для бренда одежды с 3D-графикой и анимациями.
 
-##  Демо
-https://pnikitos327-sys.github.io/Nordveil/
-
 ##  Стек технологий
 - HTML5
 - CSS3 (Flexbox, Grid, анимации)
@@ -30,4 +27,5 @@ https://pnikitos327-sys.github.io/Nordveil/
 ##  Контакты
 
 - Email: owwwwkom@gmail.com
+
 
