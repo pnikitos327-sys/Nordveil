@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NORDVEIL · apparel collection</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>    
+    <canvas id="three-canvas"></canvas>
+
+    <header class="header">
+        <div class="container">
+            <a href="#home" class="logo">NORDVEIL</a>
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#collection">Collection</a>
+                <a href="#featured">Featured</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-subtitle">The new standard</div>
+                <h1>CLOTHES<span>COLLECTION</span></h1>
+                <p>Minimal architecture for the modern silhouette. Premium materials, zero distractions.</p>
+                <div>
+                    <a href="#collection" class="btn">Explore</a>
+                    <a href="#featured" class="btn btn-outline">Lookbook</a>
+                </div>
+            </div>
+            <div id="hero-sphere"></div>
+        </div>
+    </section>
+
+    <section id="collection" class="collection">
+        <div class="container">
+            <h2>APPAREL COLLECTION</h2>
+            
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="outerwear">Outerwear</button>
+                <button class="filter-btn" data-filter="shirts">Shirts</button>
+                <button class="filter-btn" data-filter="pants">Pants</button>
+                <button class="filter-btn" data-filter="footwear">Footwear</button>
+            </div>
+            
+            <div class="carousel-wrapper">
+                <div class="carousel-arrow left" id="carousel-left">←</div>
+                <div class="carousel-arrow right" id="carousel-right">→</div>
+                
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carousel-track">
+                        <div class="product-card" data-product="parka" data-category="outerwear" data-name="M-51 Parka" data-price="890">
+                            <button class="wishlist-btn" onclick="event.stopPropagation()">♡</button>
+                            <div class="product-image">
+                                <div class="shape-container">
+                                    <div class="abstract-shape">
+                                        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="60" cy="60" r="40" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+                                            <line x1="20" y1="60" x2="100" y2="60" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <line x1="60" y1="20" x2="60" y2="100" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <circle cx="60" cy="60" r="20" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+                                            <circle cx="60" cy="60" r="5" stroke="white" stroke-width="1" fill="none" opacity="0.8"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>M-51 Parka</h3>
+                                <span class="category">Heavy wool / Black</span>
+                                <div class="rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-value">4.9</span>
+                                    <span class="review-count">(24)</span>
+                                </div>
+                                <span class="price">€890</span>
+                                <button class="add-to-cart-btn" onclick="addToCart(event, 'M-51 Parka', 890)">Add to cart</button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card" data-product="jacket" data-category="outerwear" data-name="Field Jacket" data-price="650">
+                            <button class="wishlist-btn" onclick="event.stopPropagation()">♡</button>
+                            <div class="product-image">
+                                <div class="shape-container">
+                                    <div class="abstract-shape">
+                                        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="60" cy="60" r="40" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+                                            <line x1="20" y1="60" x2="100" y2="60" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <line x1="60" y1="20" x2="60" y2="100" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <circle cx="60" cy="60" r="20" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+                                            <circle cx="60" cy="60" r="5" stroke="white" stroke-width="1" fill="none" opacity="0.8"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Field Jacket</h3>
+                                <span class="category">Cotton ripstop</span>
+                                <div class="rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-value">4.8</span>
+                                    <span class="review-count">(18)</span>
+                                </div>
+                                <span class="price">€650</span>
+                                <button class="add-to-cart-btn" onclick="addToCart(event, 'Field Jacket', 650)">Add to cart</button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card" data-product="coat" data-category="outerwear" data-name="Wool Coat" data-price="1200">
+                            <button class="wishlist-btn" onclick="event.stopPropagation()">♡</button>
+                            <div class="product-image">
+                                <div class="shape-container">
+                                    <div class="abstract-shape">
+                                        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="60" cy="60" r="40" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+                                            <line x1="20" y1="60" x2="100" y2="60" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <line x1="60" y1="20" x2="60" y2="100" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <circle cx="60" cy="60" r="20" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+                                            <circle cx="60" cy="60" r="5" stroke="white" stroke-width="1" fill="none" opacity="0.8"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Wool Coat</h3>
+                                <span class="category">Merino wool</span>
+                                <div class="rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-value">5.0</span>
+                                    <span class="review-count">(12)</span>
+                                </div>
+                                <span class="price">€1,200</span>
+                                <button class="add-to-cart-btn" onclick="addToCart(event, 'Wool Coat', 1200)">Add to cart</button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card" data-product="overshirt" data-category="shirts" data-name="Overshirt" data-price="420">
+                            <button class="wishlist-btn" onclick="event.stopPropagation()">♡</button>
+                            <div class="product-image">
+                                <div class="shape-container">
+                                    <div class="abstract-shape">
+                                        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="60" cy="60" r="40" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+                                            <line x1="20" y1="60" x2="100" y2="60" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <line x1="60" y1="20" x2="60" y2="100" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <circle cx="60" cy="60" r="20" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+                                            <circle cx="60" cy="60" r="5" stroke="white" stroke-width="1" fill="none" opacity="0.8"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Overshirt</h3>
+                                <span class="category">Wool blend</span>
+                                <div class="rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-value">4.6</span>
+                                    <span class="review-count">(9)</span>
+                                </div>
+                                <span class="price">€420</span>
+                                <button class="add-to-cart-btn" onclick="addToCart(event, 'Overshirt', 420)">Add to cart</button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card" data-product="sweater" data-category="shirts" data-name="Cashmere Sweater" data-price="890">
+                            <button class="wishlist-btn" onclick="event.stopPropagation()">♡</button>
+                            <div class="product-image">
+                                <div class="shape-container">
+                                    <div class="abstract-shape">
+                                        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="60" cy="60" r="40" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+                                            <line x1="20" y1="60" x2="100" y2="60" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <line x1="60" y1="20" x2="60" y2="100" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <circle cx="60" cy="60" r="20" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+                                            <circle cx="60" cy="60" r="5" stroke="white" stroke-width="1" fill="none" opacity="0.8"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Cashmere Sweater</h3>
+                                <span class="category">Cashmere</span>
+                                <div class="rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-value">4.9</span>
+                                    <span class="review-count">(31)</span>
+                                </div>
+                                <span class="price">€890</span>
+                                <button class="add-to-cart-btn" onclick="addToCart(event, 'Cashmere Sweater', 890)">Add to cart</button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card" data-product="shirt" data-category="shirts" data-name="Silk Shirt" data-price="620">
+                            <button class="wishlist-btn" onclick="event.stopPropagation()">♡</button>
+                            <div class="product-image">
+                                <div class="shape-container">
+                                    <div class="abstract-shape">
+                                        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="60" cy="60" r="40" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+                                            <line x1="20" y1="60" x2="100" y2="60" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <line x1="60" y1="20" x2="60" y2="100" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <circle cx="60" cy="60" r="20" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+                                            <circle cx="60" cy="60" r="5" stroke="white" stroke-width="1" fill="none" opacity="0.8"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Silk Shirt</h3>
+                                <span class="category">Silk / Midnight</span>
+                                <div class="rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-value">4.7</span>
+                                    <span class="review-count">(15)</span>
+                                </div>
+                                <span class="price">€620</span>
+                                <button class="add-to-cart-btn" onclick="addToCart(event, 'Silk Shirt', 620)">Add to cart</button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card" data-product="cargo" data-category="pants" data-name="Cargo Pants" data-price="480">
+                            <button class="wishlist-btn" onclick="event.stopPropagation()">♡</button>
+                            <div class="product-image">
+                                <div class="shape-container">
+                                    <div class="abstract-shape">
+                                        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="60" cy="60" r="40" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+                                            <line x1="20" y1="60" x2="100" y2="60" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <line x1="60" y1="20" x2="60" y2="100" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <circle cx="60" cy="60" r="20" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+                                            <circle cx="60" cy="60" r="5" stroke="white" stroke-width="1" fill="none" opacity="0.8"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Cargo Pants</h3>
+                                <span class="category">Cotton canvas</span>
+                                <div class="rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-value">4.8</span>
+                                    <span class="review-count">(22)</span>
+                                </div>
+                                <span class="price">€480</span>
+                                <button class="add-to-cart-btn" onclick="addToCart(event, 'Cargo Pants', 480)">Add to cart</button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card" data-product="trousers" data-category="pants" data-name="Cotton Trousers" data-price="380">
+                            <button class="wishlist-btn" onclick="event.stopPropagation()">♡</button>
+                            <div class="product-image">
+                                <div class="shape-container">
+                                    <div class="abstract-shape">
+                                        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="60" cy="60" r="40" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+                                            <line x1="20" y1="60" x2="100" y2="60" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <line x1="60" y1="20" x2="60" y2="100" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <circle cx="60" cy="60" r="20" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+                                            <circle cx="60" cy="60" r="5" stroke="white" stroke-width="1" fill="none" opacity="0.8"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Cotton Trousers</h3>
+                                <span class="category">Organic cotton</span>
+                                <div class="rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-value">4.9</span>
+                                    <span class="review-count">(27)</span>
+                                </div>
+                                <span class="price">€380</span>
+                                <button class="add-to-cart-btn" onclick="addToCart(event, 'Cotton Trousers', 380)">Add to cart</button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card" data-product="boots" data-category="footwear" data-name="Leather Boots" data-price="750">
+                            <button class="wishlist-btn" onclick="event.stopPropagation()">♡</button>
+                            <div class="product-image">
+                                <div class="shape-container">
+                                    <div class="abstract-shape">
+                                        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="60" cy="60" r="40" stroke="white" stroke-width="1.5" fill="none" opacity="0.8"/>
+                                            <line x1="20" y1="60" x2="100" y2="60" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <line x1="60" y1="20" x2="60" y2="100" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                                            <circle cx="60" cy="60" r="20" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+                                            <circle cx="60" cy="60" r="5" stroke="white" stroke-width="1" fill="none" opacity="0.8"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3>Leather Boots</h3>
+                                <span class="category">Full grain</span>
+                                <div class="rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-value">4.9</span>
+                                    <span class="review-count">(33)</span>
+                                </div>
+                                <span class="price">€750</span>
+                                <button class="add-to-cart-btn" onclick="addToCart(event, 'Leather Boots', 750)">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-indicators" id="carousel-indicators"></div>
+        </div>
+    </section>
+
+    <section id="featured" class="featured">
+        <div class="container">
+            <div class="featured-grid">
+                <div class="featured-text">
+                    <h2 style="border: none; padding: 0;">CRAFTED IN<br>LIMITED SERIES</h2>
+                    <p>Each piece is produced in small batches in our atelier. No excess, no waste — just essential clothing designed to last.</p>
+                    
+                    <div class="limited-timer">
+                        <h4>Limited series ends in:</h4>
+                        <div class="timer" id="timer">
+                            <div class="timer-block">
+                                <span class="days" id="days">24</span>
+                                <span class="timer-label">days</span>
+                            </div>
+                            <div class="timer-block">
+                                <span class="hours" id="hours">12</span>
+                                <span class="timer-label">hours</span>
+                            </div>
+                            <div class="timer-block">
+                                <span class="minutes" id="minutes">30</span>
+                                <span class="timer-label">min</span>
+                            </div>
+                            <div class="timer-block">
+                                <span class="seconds" id="seconds">45</span>
+                                <span class="timer-label">sec</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="size-guide">
+                        <button class="size-btn">XS</button>
+                        <button class="size-btn active">S</button>
+                        <button class="size-btn">M</button>
+                        <button class="size-btn">L</button>
+                        <button class="size-btn">XL</button>
+                    </div>
+
+                    <a href="#" class="btn">Learn more</a>
+                </div>
+                <div class="featured-image">
+                    <div class="featured-shape">
+                        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="100" r="70" stroke="white" stroke-width="2" fill="none" opacity="0.9"/>
+                            <line x1="30" y1="100" x2="170" y2="100" stroke="white" stroke-width="2" opacity="0.7"/>
+                            <line x1="100" y1="30" x2="100" y2="170" stroke="white" stroke-width="2" opacity="0.7"/>
+                            <circle cx="100" cy="100" r="35" stroke="white" stroke-width="1.5" fill="none" opacity="0.5"/>
+                            <circle cx="100" cy="100" r="10" stroke="white" stroke-width="1.5" fill="none" opacity="0.9"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 style="border: none; padding: 0;">STAY IN<br>TOUCH</h2>
+                    <p>Visit our flagship stores or reach out online.</p>
+                    <div class="contact-item">
+                        <h4>Email</h4>
+                        <p>studio@nordveil.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Phone</h4>
+                        <p>+46 8 123 45 67</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h4 style="margin-bottom: 15px;">Flagship stores</h4>
+                    <ul class="store-list">
+                        <li><strong>Stockholm</strong> — Birger Jarlsgatan 27</li>
+                        <li><strong>Berlin</strong> — Torstraße 177</li>
+                        <li><strong>Tokyo</strong> — 5-3-18 Minamiaoyama</li>
+                        <li><strong>New York</strong> — 75 Franklin Street</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="font-size: 20px;">NORDVEIL</div>
+                    <p>Essential clothing for the modern life. Founded in 2015.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Studio</h4>
+                    <a href="#">About</a>
+                    <a href="#">Stores</a>
+                    <a href="#">Careers</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a href="#">Contact</a>
+                    <a href="#">Shipping</a>
+                    <a href="#">Returns</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2026 NORDVEIL. All rights reserved.
+            </div>
+        </div>
+    </footer>
+<script src="js/script.js"></script>
+</body>
+</html>
